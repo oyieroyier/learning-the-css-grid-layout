@@ -1,1 +1,1 @@
-h1{text-align:center}.boxes{background:rgba(255,66,255,.2666666667)}
+h1{text-align:center}.boxes{background:rgba(255,66,255,.2666666667)}.container{display:grid;grid-template-columns:150px 150px 150px 150px;grid-template-rows:150px 150px 150px 150px 150px 150px}
