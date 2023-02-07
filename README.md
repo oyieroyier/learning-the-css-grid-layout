@@ -334,7 +334,7 @@ The code to make Box 7 occupy those cells is the one below.
 }
 ```
 
-####Our result?
+#### Our result?
 
 ![](./images/box-7-layering-over-6-fail.png)
 
@@ -467,6 +467,7 @@ Since we repeated 150px four times in the column and six times in the row, we co
 ```
 
 The result remains the same.
+
 ![](./images/after_repeat_notation.png)
 
 ## Gap between Grid items.
@@ -584,6 +585,7 @@ This is what the grid should now look like:
 ![](./images/new_grid-defined.png)
 
 ## grid-template-areas
+
 Now we shall introduce a new concept called the `grid-template-areas`.
 
 The `grid-template-areas` key takes values inside of quotes.
@@ -629,4 +631,87 @@ Inside each set of the quotation marks, we pass values to represent columns insi
 The values describe what we intend each column in the row to represent. For example,
 we might want the first column to be a menu item. So we could pass "menu-item" as the first value.
 
-Values are separated by commas and must be the same length as the number of columns.
+Values for different rows are separated by commas. Values describing the same row are separated by hyphens, underscores, camelCase or PascalCase.
+
+As an example, we shall name the columns in out first row `"menu-left header-central menu-right"`.
+This is the value we pass between the first set of quotation marks.
+
+We shall then name the columns in out second row `"body-left content-center body-right"`.
+This is the value we pass between the second set of quotation marks.
+
+```css
+.another_container {
+	margin-top: 3rem;
+	border: 3px solid #e72041;
+	display: grid;
+	grid-template-columns: 100px 300px 100px;
+	grid-template-rows: 100px 300px;
+	place-content: center;
+	grid-template-areas:
+		"menu-left header-central menu-right"
+		"body-left content-center body-right";
+}
+```
+
+The next step is to assign the grid items into each section of your choosing.
+
+This is still done using the `grid-area` property but instead of passing row-start, row-end, and column-start, column-end as the values, we pass the defined areas.
+
+By default, the grid items are assigned in the template areas of the container in the order they were declared in the HTML document.
+
+Below is the default assignment of the grid items to the container:
+
+![](./images/before-specific-assignment.png)
+
+However, we can target each grid item and assign them to a specific grid template area.
+
+Consider the code below targeting the Box 6 above with a class of `item-6` and Box 3 with a class of `item-3`.
+
+```css
+.item-6 {
+	grid-area: menu-left;
+}
+
+.item-3 {
+	grid-area: content-center;
+}
+```
+
+We have now assigned Box 6 to the template area we defined as `menu-left` (by default occupied by Box 1) and Box 3 to the template area we defined as `content-center` (by default occupied by Box 5).
+
+This makes the page render as follows:
+
+![](./images/assigned-to-template-areas.png)
+
+Unassigned boxes will be pushed to occupy empty grids, across the row axis first then across the column axis.
+
+We can now proceed and assign all boxes to specific grid areas.
+
+```css
+.item-1 {
+	grid-area: body-right;
+}
+.item-2 {
+	grid-area: menu-right;
+}
+.item-3 {
+	grid-area: content-center;
+}
+.item-4 {
+	grid-area: header-central;
+}
+.item-5 {
+	grid-area: body-left;
+}
+.item-6 {
+	grid-area: menu-left;
+}
+```
+
+All the grid items have been moved around the grid container.
+
+![](./images/all-items-moved.png)
+
+**NOTE:**
+**If anything, this teaches us to differentiate the grid cells from the grid items.**
+**The grid cells are formed when templating is done while the items only conform to the grid areas they have been instructed to occupy in the container. Grid lines are invisible on the page but they form the basis of a Grid outline.**

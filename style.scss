@@ -59,26 +59,25 @@ h1 {
 	grid-template-rows: 100px 300px;
 	place-content: center;
 	grid-template-areas:
-		"menu-content header-content top-aside"
-		"body-left body-center body-right";
+		"menu-left header-central menu-right"
+		"body-left content-center body-right";
 }
 
-.item-1 {
-	grid-area: menu-content;
+.item-1{
+grid-area: body-right;
 }
-
-.item-2 {
-	grid-area: header-content;
+.item-2{
+grid-area: menu-right;
 }
 .item-3 {
-	grid-area: top-aside;
+	grid-area: content-center;
 }
-.item-4 {
-	grid-area: body-left;
+.item-4{
+grid-area: header-central;
 }
-.item-5 {
-	grid-area: body-center;
+.item-5{
+grid-area: body-left;
 }
 .item-6 {
-	grid-area: body-right;
+	grid-area: menu-left;
 }
