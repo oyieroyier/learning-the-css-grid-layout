@@ -400,3 +400,32 @@ We can also set the size of the implicit grids to ensure conformity but since we
 The result would be this:
 
 ![](./images/grid-auto-columns.png)
+
+## Segue: How to center a Grid container.
+
+By now you know the running joke amongst Frontend Developers: How to center a Div.
+
+CSS has, however, since come a long way and divs/elements can be centered with just a few lines of codes.
+
+How do we center a grid container?
+
+Simply add a `place-content` property to the grid container and assign it a value of `center`.
+
+```css
+.container {
+	display: grid;
+	grid-template-columns: 150px 150px 150px 150px;
+	grid-template-rows: 150px 150px 150px 150px 150px 150px;
+	grid-auto-columns: 150px;
+	grid-auto-flow: column;
+	place-content: center;
+}
+```
+
+The result is this:
+
+![](./images/container-centered.png)
+
+It's the exact same container from the previous example, only now centered.
+
+Moving forward, our grid container will be centered on the page.
