@@ -84,14 +84,28 @@ h1 {
 .last-container {
 	margin-top: 4rem;
 	display: grid;
-	grid-template-rows: repeat(4, 200px);
+	grid-template-rows: repeat(auto-fit, 200px);
 	grid-template-columns: repeat(5, 200px);
 	place-content: center;
-	justify-items:baseline;
+	justify-items:end;
+	align-items: center;
 }
 
 .last-container .boxes {
 	background: orangered;
 	height: 80px;
 	width: 80px;
+}
+
+.last-item1{
+	justify-self: start;
+	align-self: end;
+}
+.last-item2{
+	justify-self: center;
+	align-self: start;
+}
+.last-item4{
+	justify-self: start;
+	align-self: center;
 }

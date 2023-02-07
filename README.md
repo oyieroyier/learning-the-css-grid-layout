@@ -794,6 +794,7 @@ Let us try moving the items around their cells.
 	justify-items: end;
 }
 ```
+
 ![](./images/justify-grid-end.png)
 
 ### `justify-items: center`
@@ -812,4 +813,126 @@ Let us try moving the items around their cells.
 ![](./images/justify-center.png)
 
 ### Align Items
-Align items 
+
+Just like in flexbox, align-items is used to align items vertically (along the column axis).
+
+Let us move the grid items around in the container:
+
+### `align-items: start`
+Aligns the element to the start of the row axis in the container it's inside of.
+
+```css
+.last-container {
+	margin-top: 4rem;
+	display: grid;
+	grid-template-rows: repeat(4, 200px);
+	grid-template-columns: repeat(5, 200px);
+	place-content: center;
+	align-items: start;
+}
+```
+
+![](./images/align-start.png)
+
+### `align-items: end`
+Aligns the element to the end of the row axis in the container it's inside of.
+```css
+.last-container {
+	margin-top: 4rem;
+	display: grid;
+	grid-template-rows: repeat(4, 200px);
+	grid-template-columns: repeat(5, 200px);
+	place-content: center;
+	align-items: end;
+}
+```
+
+![](./images/align-end.png)
+
+### `align-items: center`
+Aligns the element to the midpoint of the row axis in the container it's inside of.
+```css
+.last-container {
+	margin-top: 4rem;
+	display: grid;
+	grid-template-rows: repeat(4, 200px);
+	grid-template-columns: repeat(5, 200px);
+	place-content: center;
+	align-items: center;
+}
+```
+
+![](./images/align-center.png)
+
+### `align-items: center` && `justify-items: end`
+Aligns the element to the midpoint of the row axis in the container it's inside of and to the end of the column axis in the same container.
+```css
+.last-container {
+	margin-top: 4rem;
+	display: grid;
+	grid-template-rows: repeat(4, 200px);
+	grid-template-columns: repeat(5, 200px);
+	place-content: center;
+	justify-items: end;
+	align-items: center;
+}
+```
+
+![](./images/align-center-justify-end.png)
+
+### `align-items: center` && `justify-items: center`
+Centers the items. This is another way to center a div.
+
+```css
+.last-container {
+	margin-top: 4rem;
+	display: grid;
+	grid-template-rows: repeat(4, 200px);
+	grid-template-columns: repeat(5, 200px);
+	place-content: center;
+	justify-items: center;
+	align-items: center;
+}
+```
+
+![](./images/align-and-justify-center.png)
+
+### `justify-self` and `align-self`
+
+These properties are called on the grid items themselves and are used to override the values set on the grid container for all the children.
+
+This is how all our grid items currently look like:
+
+![](./images/current_page.png)
+
+What if we want to make the following changes:
+
+    1. Item 1 to justify start and align end.
+    2. Item 2 to align start and end justify center.
+    3. Item 4 to align center and justify start.
+
+Our end product should look like this:
+
+![](./images/overriding.png)
+
+We would achieve this by calling the `align-self` and `justify-self` properties on the grid items.
+
+```css
+.last-item1 {
+	justify-self: start;
+	align-self: end;
+}
+.last-item2 {
+	justify-self: center;
+	align-self: start;
+}
+.last-item4 {
+	justify-self: start;
+	align-self: center;
+}
+```
+### `justify-content` and `align-content`
+
+If the Grid container is inside another container, we can use the `justify-content` and `align-content` properties to adjust the positioning of the grid container.
+
+These properties take similar values to the previously mentioned properties.
