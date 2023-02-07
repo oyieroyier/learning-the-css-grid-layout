@@ -450,8 +450,8 @@ We could rewrite it using a `repeat` notation.
 
 The `repeat` notation takes two arguments:
 
-	i. The first argument is the number of times you want to repeat a value.
-	ii. The second argument is value you want repeated.
+    i. The first argument is the number of times you want to repeat a value.
+    ii. The second argument is value you want repeated.
 
 Since we repeated 150px four times in the column and six times in the row, we could refactor this as follows:
 
@@ -465,3 +465,45 @@ Since we repeated 150px four times in the column and six times in the row, we co
 	place-content: center;
 }
 ```
+
+The result remains the same.
+![](./images/after_repeat_notation.png)
+
+## Gap between Grid items.
+
+You can add a gap property in the grid container to space the items.
+
+If you assign the gap property a single value it will assign gaps equally to both the rows and columns.
+
+```css
+.container {
+	display: grid;
+	grid-template-columns: repeat(4, 150px);
+	grid-template-rows: repeat(6, 150px);
+	grid-auto-columns: 150px;
+	grid-auto-flow: column;
+	place-content: center;
+	grid-gap: 10px;
+}
+```
+Notice the gaps are assigned equally between both the rows and columns.
+
+![](./images/gap-one-value.png)
+
+If you assign the gap property two values, it will use the first value to set the gaps on the rows and the second value to set gaps columns.
+
+```css
+.container {
+	display: grid;
+	grid-template-columns: repeat(4, 150px);
+	grid-template-rows: repeat(6, 150px);
+	grid-auto-columns: 150px;
+	grid-auto-flow: column;
+	place-content: center;
+	gap: 20px 10px;
+}
+```
+Notice that now the gap between rows is twice as big as the gap between columns. That's because the first value (20px) was used to set the gap between rows and the second value (10px) was used to set the gap between columns.
+
+![](./images/gap-two-values.png)
+
