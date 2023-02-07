@@ -486,6 +486,7 @@ If you assign the gap property a single value it will assign gaps equally to bot
 	grid-gap: 10px;
 }
 ```
+
 Notice the gaps are assigned equally between both the rows and columns.
 
 ![](./images/gap-one-value.png)
@@ -503,7 +504,129 @@ If you assign the gap property two values, it will use the first value to set th
 	gap: 20px 10px;
 }
 ```
+
 Notice that now the gap between rows is twice as big as the gap between columns. That's because the first value (20px) was used to set the gap between rows and the second value (10px) was used to set the gap between columns.
 
 ![](./images/gap-two-values.png)
 
+## A different method to create grids.
+
+Given the HTML code below under the above-grid we've been working with:
+
+```html
+<div class="another_container">
+	<div class="boxes item-1">
+		<h2>Box 1</h2>
+	</div>
+	<div class="boxes item-2">
+		<h2>Box 2</h2>
+	</div>
+	<div class="boxes item-3">
+		<h2>Box 3</h2>
+	</div>
+	<div class="boxes item-4">
+		<h2>Box 4</h2>
+	</div>
+	<div class="boxes item-5">
+		<h2>Box 5</h2>
+	</div>
+	<div class="boxes item-6">
+		<h2>Box 6</h2>
+	</div>
+</div>
+```
+
+Let us first overwrite some of the properties the items here have inherited from the `boxes` class. We'll alter the background color and font color.
+
+```css
+.another_container .boxes {
+	background: #065252;
+	color: aliceblue;
+}
+```
+
+Let us also add a margin-top and a border to `another_container` to separate and distinguish it from `container`.
+
+```css
+.another_container {
+	margin-top: 3rem;
+	border: 3px solid #e72041;
+}
+```
+
+This is how the page should now look:
+
+![](./images/new_grid.png)
+
+Moving forward we shall only focus on the new grid, though.
+
+Let us quickly set up a template for the grid container `another_container`.
+
+```css
+.another_container {
+	margin-top: 3rem;
+	border: 3px solid #e72041;
+	display: grid;
+	grid-template-columns: 100px 300px 100px;
+	grid-template-rows: 100px 300px;
+	place-content: center;
+}
+```
+
+We are defining our grid to have three columns, the first and last of which are equal in with and the middle one being 300px.
+
+We are also defining our rows to be two, with the first 100px in height and the middle and second 300px in height.
+
+Finally, we are centering the container on the page.
+
+This is what the grid should now look like:
+
+![](./images/new_grid-defined.png)
+
+## grid-template-areas
+Now we shall introduce a new concept called the `grid-template-areas`.
+
+The `grid-template-areas` key takes values inside of quotes.
+
+The sets of quotes represents the number of rows in the targeted container.
+
+For example, this sample grid container with a class of `some-container` has five rows, therefore 5 sets of quotation marks are passed as `grid-template-areas` values.
+
+```css
+.some-container {
+	display: grid;
+	grid-template-columns: 50px 50px 50px;
+	grid-template-rows: 50px 50px 50px 50px 50px;
+	grid-template-areas:
+		""
+		""
+		""
+		""
+		"";
+}
+```
+
+This other sample grid container with a class of `some-other-random-container` has three rows hence 3 sets of quotation marks are passed as `grid-template-areas` values.
+
+```css
+.some-other-random-container {
+	display: grid;
+	grid-template-columns: 50px 50px 50px 50px 50px;
+	grid-template-rows: 50px 50px 50px;
+	grid-template-areas:
+		""
+		""
+		"";
+}
+```
+
+Our grid container `.another_class` has 2 columns (one of height 100px and another of height 300px).
+
+Therefore, our `grid-template-areas` will have 2 sets of quotation marks in the value section.
+
+Inside each set of the quotation marks, we pass values to represent columns inside that row.
+
+The values describe what we intend each column in the row to represent. For example,
+we might want the first column to be a menu item. So we could pass "menu-item" as the first value.
+
+Values are separated by commas and must be the same length as the number of columns.

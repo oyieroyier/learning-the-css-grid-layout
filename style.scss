@@ -45,3 +45,40 @@ h1 {
 .box8 {
 	grid-area: 5 / 3 / 7 /5;
 }
+
+.another_container .boxes {
+	background: #065252;
+	color: aliceblue;
+}
+
+.another_container {
+	margin-top: 3rem;
+	border: 3px solid #e72041;
+	display: grid;
+	grid-template-columns: 100px 300px 100px;
+	grid-template-rows: 100px 300px;
+	place-content: center;
+	grid-template-areas:
+		"menu-content header-content top-aside"
+		"body-left body-center body-right";
+}
+
+.item-1 {
+	grid-area: menu-content;
+}
+
+.item-2 {
+	grid-area: header-content;
+}
+.item-3 {
+	grid-area: top-aside;
+}
+.item-4 {
+	grid-area: body-left;
+}
+.item-5 {
+	grid-area: body-center;
+}
+.item-6 {
+	grid-area: body-right;
+}
