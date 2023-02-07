@@ -46,11 +46,6 @@ h1 {
 	grid-area: 5 / 3 / 7 /5;
 }
 
-.another_container .boxes {
-	background: #065252;
-	color: aliceblue;
-}
-
 .another_container {
 	margin-top: 3rem;
 	border: 3px solid #e72041;
@@ -62,22 +57,41 @@ h1 {
 		"menu-left header-central menu-right"
 		"body-left content-center body-right";
 }
-
-.item-1{
-grid-area: body-right;
+.another_container .boxes {
+	background: #065252;
+	color: aliceblue;
 }
-.item-2{
-grid-area: menu-right;
+
+.item-1 {
+	grid-area: body-right;
+}
+.item-2 {
+	grid-area: menu-right;
 }
 .item-3 {
 	grid-area: content-center;
 }
-.item-4{
-grid-area: header-central;
+.item-4 {
+	grid-area: header-central;
 }
-.item-5{
-grid-area: body-left;
+.item-5 {
+	grid-area: body-left;
 }
 .item-6 {
 	grid-area: menu-left;
+}
+
+.last-container {
+	margin-top: 4rem;
+	display: grid;
+	grid-template-rows: repeat(4, 200px);
+	grid-template-columns: repeat(5, 200px);
+	place-content: center;
+	justify-items:baseline;
+}
+
+.last-container .boxes {
+	background: orangered;
+	height: 80px;
+	width: 80px;
 }

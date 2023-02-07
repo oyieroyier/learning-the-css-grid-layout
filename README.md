@@ -715,3 +715,101 @@ All the grid items have been moved around the grid container.
 **NOTE:**
 **If anything, this teaches us to differentiate the grid cells from the grid items.**
 **The grid cells are formed when templating is done while the items only conform to the grid areas they have been instructed to occupy in the container. Grid lines are invisible on the page but they form the basis of a Grid outline.**
+
+## Winding Up
+
+### Justify, Alignment, etc.
+
+Given the following HTML code under the `another-container` container:
+
+```html
+<div class="last-container">
+	<div class="boxes last-item1">
+		<h2>Last Item 1</h2>
+	</div>
+	<div class="boxes last-item2">
+		<h2>Last Item 2</h2>
+	</div>
+	<div class="boxes last-item3">
+		<h2>Last Item 3</h2>
+	</div>
+	<div class="boxes last-item4">
+		<h2>Last Item 4</h2>
+	</div>
+</div>
+```
+
+Let us start by overriding the color inherited `boxes` class and reduce their sizes.
+
+```css
+.last-container .boxes {
+	background: orangered;
+	height: 80px;
+	width: 80px;
+}
+```
+
+Then let us quickly set up a template for the grid container:
+
+```css
+.last-container {
+	margin-top: 4rem;
+	display: grid;
+	grid-template-rows: repeat(4, 200px);
+	grid-template-columns: repeat(5, 200px);
+	place-content: center;
+}
+```
+
+This is how the page should now appear:
+![](./images/add-last-grid.png).
+
+Moving forward, we shall move the only focus on the last grid container.
+
+The outline of this grid and placement of the items provides us with an opportunity to learn about justifying and aligning content.
+
+![](./images/last-grid-container.png)
+
+#### Justify Items
+
+Grid has a `justify-items` property that aligns grid items horizontally in the cells.
+
+We call this property in the container, and not on an individual grid element.
+
+By default, the vaue of this property is set to `justify-items: stretch`.
+
+The screenshot above shows the default behavior of `justify-items`.
+
+Let us try moving the items around their cells.
+
+### `justify-items: end`
+
+```css
+.last-container {
+	margin-top: 4rem;
+	display: grid;
+	grid-template-rows: repeat(4, 200px);
+	grid-template-columns: repeat(5, 200px);
+	place-content: center;
+	justify-items: end;
+}
+```
+![](./images/justify-grid-end.png)
+
+### `justify-items: center`
+
+```css
+.last-container {
+	margin-top: 4rem;
+	display: grid;
+	grid-template-rows: repeat(4, 200px);
+	grid-template-columns: repeat(5, 200px);
+	place-content: center;
+	justify-items: center;
+}
+```
+
+![](./images/justify-center.png)
+
+### Align Items
+Align items 
