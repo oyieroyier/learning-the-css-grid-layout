@@ -429,3 +429,39 @@ The result is this:
 It's the exact same container from the previous example, only now centered.
 
 Moving forward, our grid container will be centered on the page.
+
+## Better ways to create Grid containers
+
+I said that we would look at better ways to create a grid container.
+
+That time is now.
+
+Instead of writing this repetitive code like we did:
+
+```css
+.container {
+	display: grid;
+	grid-template-columns: 150px 150px 150px 150px;
+	grid-template-rows: 150px 150px 150px 150px 150px 150px;
+}
+```
+
+We could rewrite it using a `repeat` notation.
+
+The `repeat` notation takes two arguments:
+
+	i. The first argument is the number of times you want to repeat a value.
+	ii. The second argument is value you want repeated.
+
+Since we repeated 150px four times in the column and six times in the row, we could refactor this as follows:
+
+```css
+.container {
+	display: grid;
+	grid-template-columns: repeat(4, 150px);
+	grid-template-rows: repeat(6, 150px);
+	grid-auto-columns: 150px;
+	grid-auto-flow: column;
+	place-content: center;
+}
+```

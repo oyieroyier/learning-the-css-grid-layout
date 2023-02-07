@@ -4,8 +4,8 @@ h1 {
 
 .container {
 	display: grid;
-	grid-template-columns: 150px 150px 150px 150px;
-	grid-template-rows: 150px 150px 150px 150px 150px 150px;
+	grid-template-columns: repeat(4, 150px);
+	grid-template-rows: repeat(6, 150px);
 	grid-auto-columns: 150px;
 	grid-auto-flow: column;
 	place-content: center;
