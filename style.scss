@@ -56,10 +56,11 @@ h1 {
 	grid-template-areas:
 		"menu-left header-central menu-right"
 		"body-left content-center body-right";
-}
-.another_container .boxes {
-	background: #065252;
-	color: aliceblue;
+
+	.boxes {
+		background: #065252;
+		color: aliceblue;
+	}
 }
 
 .item-1 {
@@ -87,25 +88,25 @@ h1 {
 	grid-template-rows: repeat(auto-fit, 200px);
 	grid-template-columns: repeat(5, 200px);
 	place-content: center;
-	justify-items:end;
+	justify-items: end;
 	align-items: center;
+
+	.boxes {
+		background: orangered;
+		height: 80px;
+		width: 80px;
+	}
 }
 
-.last-container .boxes {
-	background: orangered;
-	height: 80px;
-	width: 80px;
-}
-
-.last-item1{
+.last-item1 {
 	justify-self: start;
 	align-self: end;
 }
-.last-item2{
+.last-item2 {
 	justify-self: center;
 	align-self: start;
 }
-.last-item4{
+.last-item4 {
 	justify-self: start;
 	align-self: center;
 }
