@@ -316,7 +316,7 @@ The result should be this:
 
 ## Layering over an element positioned using the span property
 
-How about we resize and reposition Box 7 into a 2x2 square so that it occupies one cell in Box 6 (_positioned using span property_) and also the blank cell right below it?
+How about we resize and reposition Box 7 into a 2x2 square so that it occupies two cells in Box 6 (_positioned using span property_) and also the blank cell right below it?
 
 Let us also give it a similar color to Box 3 so we can see the layering at work.
 
@@ -324,7 +324,7 @@ We might expect the result to look like this:
 
 ![](./images/box-7-layering-over-6-success.png)
 
-The code to make Box 7 occupy those cells is the one below.
+The code to make Box 7 occupy those cells is this:
 
 ```css
 .box7 {
